@@ -8,7 +8,9 @@ body {
   align-items: center;
   font-family: sans-serif;
   user-select: none;
-  -webkit-user-select: none;
+  -webkit-user-select: none; /* iOS에서도 텍스트 선택 방지 */
+  -webkit-touch-callout: none; /* iOS에서 텍스트 선택 방지 */
+  -webkit-user-drag: none; /* iOS에서 드래그 방지 */
   overflow: hidden;
   font-size: 4em;
 }
@@ -17,6 +19,7 @@ html,
 body {
   height: 90%; /* 화면을 세로로 꽉 채움 */
   margin: 0; /* 기본 여백 제거 */
+  overflow: hidden; /* 확대 방지를 위한 추가 설정 */
 }
 
 body.green {
