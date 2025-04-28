@@ -7,6 +7,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
+  user-select: none;
+  font-size: 4em;
 }
 
 body.green {
