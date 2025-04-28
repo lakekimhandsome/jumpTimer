@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #111;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+body.green {
+  background: rgb(66, 180, 66); /* 초록 */
+}
+
+body.red {
+  background: rgb(228, 55, 55); /* 빨강 */
+}
+
+#container {
+  text-align: center;
+}
+
+#time,
+#height {
+  font-size: 2em;
+  margin: 10px 0;
+}
