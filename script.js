@@ -19,10 +19,8 @@ function stopTimer() {
 }
 
 function reset() {
-  timeDisplay.textContent = `0.000 s`;
-  heightDisplay.textContent = `0.00 m`;
-  document.body.classList.remove("red");
-  document.body.classList.add("green");
+  timeDisplay.textContent = `0.000s`;
+  heightDisplay.textContent = `0.00m`;
 }
 
 function handleTouchStart() {
@@ -35,8 +33,10 @@ function handleTouchStart() {
 function handleTouchEnd() {
   if (!running) {
     reset();
-    startTimer();
-    running = true;
+    setTimeout(() => {
+      startTimer(); // reset 후 잠깐 딜레이 후 타이머 시작
+      running = true;
+    }, 50); // 50ms 정도 딜레이 후 시작
   }
 }
 
@@ -45,14 +45,11 @@ document.body.addEventListener("touchend", handleTouchEnd);
 document.body.addEventListener("mousedown", handleTouchStart);
 document.body.addEventListener("mouseup", handleTouchEnd);
 
-// 페이지 처음 열 때 초록색으로 초기화
-document.body.classList.add("green");
-
 function updateTime() {
   const elapsed = (performance.now() - startTime) / 1000;
-  timeDisplay.textContent = `${elapsed.toFixed(3)} s`;
+  timeDisplay.textContent = `${elapsed.toFixed(3)}s`;
 
   const t = elapsed / 2; // 최고점 도달 시간
   const height = 0.5 * 9.81 * t * t;
-  heightDisplay.textContent = `${height.toFixed(2)} m`;
+  heightDisplay.textContent = `${height.toFixed(2)}m`;
 }
